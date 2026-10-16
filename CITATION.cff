@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use Lab Ledger Dental in your work, please cite it as below."
+title: "Lab Ledger Dental"
+abstract: >-
+  Free desktop app for dental labs. It records every job from arrival to shipping,
+  works out material costs from real pack prices and shows the profit that is left
+  after running costs and taxes. Works offline and keeps all data on the computer.
+  Windows, macOS and Linux.
+type: software
+authors:
+  - given-names: "Vladyslav"
+    family-names: "Pereverzyev"
+    email: "info@vladpereverzyev.com"
+    website: "https://www.vladpereverzyev.com"
+repository-code: "https://github.com/vladpereverzyev/lab-ledger-dental"
+url: "https://vladpereverzyev.github.io/lab-ledger-dental/"
+license: BUSL-1.1
+keywords:
+  - dental laboratory
+  - dental technician
+  - cost tracking
+  - profit margin
+  - lab management
+  - offline-first
+  - Electron
