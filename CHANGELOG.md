@@ -6,7 +6,7 @@ All notable changes to Lab Ledger Dental are documented here. The format is base
 ## [Unreleased]
 
 ### Changed
-- Electron 44.5.1.
+- Electron 44.7.0.
 - Lab Ledger Dental is published only here on GitHub. The Microsoft Store and
   Mac App Store builds are gone, and with them the store packaging, the Mac
   App Store workflow, the store icons and the sandbox code paths.
