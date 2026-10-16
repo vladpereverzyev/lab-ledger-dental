@@ -59,9 +59,9 @@ before reporting an issue.
 Please report vulnerabilities privately, not in a public issue.
 
 - Preferred: use GitHub's private vulnerability reporting on this repository
-  (the "Report a vulnerability" button in the Security tab), if enabled.
-- Otherwise: contact the maintainer through their GitHub profile at
-  https://github.com/vladpereverzyev.
+  (the "Report a vulnerability" button in the
+  [Security tab](https://github.com/vladpereverzyev/lab-ledger-dental/security)).
+- Otherwise: write to <info@vladpereverzyev.com>.
 
 Please include steps to reproduce, the app version, and your operating system.
 You can expect an initial response within a few days. Thank you for helping keep
