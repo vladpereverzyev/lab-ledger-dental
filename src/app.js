@@ -384,16 +384,6 @@ async function loadAppInfo() {
   });
   $("#setDataPath").textContent = appInfo.dataPath || "-";
 
-  // The Store keeps its own installs up to date, so the version stays on show
-  // but the update check, its button and its switch step aside.
-  if (appInfo.store) {
-    if (v) v.disabled = true;
-    const sw = $("#setAutoUpdate").closest("label");
-    sw.style.display = "none";
-    if (sw.nextElementSibling && sw.nextElementSibling.classList.contains("hint")) sw.nextElementSibling.style.display = "none";
-    return;
-  }
-
   if (state.config.autoUpdateCheck && dueForUpdateCheck()) checkUpdates(false);
 }
 
@@ -978,9 +968,6 @@ function bindUI() {
     const r = await window.api.chooseExcel(t("dlg_excel_copy"));
     if (!r || r.canceled) return;
     state.config.excel.path = r.path;
-    // Only the Mac App Store build returns one; any other build clears a stale
-    // one rather than keep a bookmark to a place the path no longer names.
-    state.config.excel.bookmark = r.bookmark || "";
     state.config.excel.enabled = true;
     save();
     renderCatalog();
@@ -2271,7 +2258,7 @@ function dueForUpdateCheck() {
 }
 
 async function checkUpdates(manual) {
-  if (!window.api.checkUpdate || appInfo.store) return;
+  if (!window.api.checkUpdate) return;
   if (manual) {
     $("#updateState").className = "update-state";
     $("#updateState").textContent = t("update_checking");

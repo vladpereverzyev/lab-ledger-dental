@@ -1,0 +1,37 @@
+name: CI
+
+# Every push to main and every pull request: the JavaScript must parse and the
+# tests must pass. The ruleset on main asks for this job before a merge.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      # The tests need only Node, so Electron's own binary is not downloaded.
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Syntax of every script
+        run: |
+          set -e
+          for f in electron/*.js src/*.js web/*.js test/*.js; do
+            node --check "$f"
+          done
+
+      - name: Tests
+        run: npm test

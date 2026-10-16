@@ -5,9 +5,21 @@ All notable changes to Lab Ledger Dental are documented here. The format is base
 
 ## [Unreleased]
 
+### Changed
+- Electron 44.5.1.
+- Lab Ledger Dental is published only here on GitHub. The Microsoft Store and
+  Mac App Store builds are gone, and with them the store packaging, the Mac
+  App Store workflow, the store icons and the sandbox code paths.
+
+### Fixed
+- The README gave 2030-09-14 as the date this version becomes Apache 2.0. The
+  date in LICENSE is 2030-10-01.
+
 ### Security
 - `brace-expansion`, used only by the build tools and never shipped in the app,
   updated to 1.1.21, 2.1.7 and 5.0.12 (Dependabot alerts).
+- `http-cache-semantics` and `fast-uri`, also build tools only, updated
+  (Dependabot alert).
 
 ## [1.5.2] - 2026-10-01
 

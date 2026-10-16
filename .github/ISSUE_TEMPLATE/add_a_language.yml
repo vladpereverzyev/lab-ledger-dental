@@ -1,0 +1,31 @@
+name: Add a language
+description: Translate the app into a new language (translation only, a good first pull request)
+title: "i18n: add <language>"
+labels: [good first issue, i18n]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The app ships in English, Italian, Spanish, French and German. A new language is a
+        translation only change in `src/i18n.js`. See
+        [CONTRIBUTING.md](https://github.com/vladpereverzyev/lab-ledger-dental/blob/main/CONTRIBUTING.md#add-or-improve-a-language-great-first-contribution).
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      description: For example Portuguese.
+    validations:
+      required: true
+  - type: input
+    id: code
+    attributes:
+      label: Language code
+      description: For example pt.
+    validations:
+      required: true
+  - type: checkboxes
+    id: self
+    attributes:
+      label: Who translates
+      options:
+        - label: I would like to do the translation myself

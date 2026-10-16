@@ -323,8 +323,6 @@ Wiederherstellungscode - und sagt dir, wo, statt darüber neu anzufangen.
 Lab Ledger Dental sammelt nichts. Kein Konto, keine Statistik, kein Tracking, keine
 Werbung und keine Absturzberichte, und Ihre Daten werden nie hochgeladen.
 
-- **Versionen aus dem Microsoft Store und dem Mac App Store**: stellen selbst keine Netzwerkanfragen;
-  Updates kommen über den Store.
 - **Version von GitHub**: ist die Update-Prüfung eingeschaltet (sie lässt sich
   in den Einstellungen abschalten), fragt sie GitHub höchstens einmal am Tag
   nach der neuesten Version. Die Anfrage enthält nur den App-Namen und die
@@ -384,5 +382,5 @@ eigenen Labor, nicht frei zum Weiterverkauf. Es gilt die
   Fassung davon Dritten gegen Geld anbietet: als Produkt, als gehosteten
   Dienst, mit Hardware gebündelt oder in ein anderes Produkt eingebaut.
   Schreiben Sie an <info@vladpereverzyev.com>.
-- **Am 2030-09-14 wird diese Version automatisch Apache 2.0.** Jede
+- **Am 2030-10-01 wird diese Version automatisch Apache 2.0.** Jede
   Veröffentlichung hat ihr eigenes Datum, vier Jahre nach Erscheinen.

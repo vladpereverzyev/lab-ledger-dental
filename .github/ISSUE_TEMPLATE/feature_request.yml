@@ -1,0 +1,16 @@
+name: Feature request
+description: An idea to make Lab Ledger Dental better for a dental lab
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+      description: What should the app do, and where in it?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: The work in the lab it would help with.

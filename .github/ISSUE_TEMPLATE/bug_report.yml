@@ -1,0 +1,45 @@
+name: Bug report
+description: Something in Lab Ledger Dental does not work as it should
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. For a security problem do not open an issue. Follow the
+        [security policy](https://github.com/vladpereverzyev/lab-ledger-dental/security/policy) instead.
+        Never attach real patient data or a backup of your archive.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Shown in Settings and in the bottom right corner of the window, for example 1.5.2.
+    validations:
+      required: true
+  - type: dropdown
+    id: system
+    attributes:
+      label: System
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - Browser demo
+    validations:
+      required: true
+  - type: input
+    id: system-version
+    attributes:
+      label: System version
+      description: For example Windows 11, macOS 26 or Ubuntu 24.04.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens
+      description: What you did, what you expected and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: more
+    attributes:
+      label: Screenshots
+      description: A screenshot that shows the problem, with no real patient or client names on it.

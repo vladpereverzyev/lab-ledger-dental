@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security problem
+    url: https://github.com/vladpereverzyev/lab-ledger-dental/security/policy
+    about: Report it privately, not in a public issue.
+  - name: Try the live demo
+    url: https://vladpereverzyev.github.io/lab-ledger-dental/
+    about: The whole app in the browser with sample data, nothing to install.
+  - name: Questions and ideas
+    url: https://github.com/vladpereverzyev/lab-ledger-dental/discussions
+    about: Ask how something works or share how your lab uses the app.

@@ -24,10 +24,6 @@ const GITHUB_REPO = "lab-ledger-dental";
 const GITHUB_API_VERSION = "2022-11-28";
 const RELEASES_PAGE = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/latest`;
 
-// A Microsoft Store or Mac App Store install is updated by its store, never
-// by the app: no update check, no download, no installer.
-const STORE = !!process.windowsStore || !!process.mas;
-
 let mainWindow = null;
 
 // ---------------------------------------------------------------------------
@@ -76,18 +72,7 @@ function syncExcel(reason) {
     const cfg = (state.config && state.config.excel) || {};
     if (!cfg.enabled || !cfg.path) return { ok: false, skipped: true };
     const wb = buildWorkbook(state, app.getVersion());
-    // The Mac App Store sandbox lets the app write outside its own container
-    // only into a folder the user picked, and only with the bookmark that pick
-    // left behind: without one (an archive restored from another computer)
-    // the folder has to be chosen again on this Mac.
-    if (process.mas) {
-      if (!cfg.bookmark) return { ok: false, error: "choose the folder again" };
-      const stop = app.startAccessingSecurityScopedResource(cfg.bookmark);
-      try { XLSX.writeFile(wb, cfg.path); }
-      finally { stop(); }
-    } else {
-      XLSX.writeFile(wb, cfg.path);
-    }
+    XLSX.writeFile(wb, cfg.path);
     return { ok: true, path: cfg.path, reason };
   } catch (err) {
     console.error("excel sync failed:", err.message);
@@ -172,8 +157,7 @@ app.on("window-all-closed", () => {
 ipcMain.handle("app:info", async () => ({
   version: app.getVersion(),
   apiVersion: GITHUB_API_VERSION,
-  dataPath: DATA_FILE,
-  store: STORE
+  dataPath: DATA_FILE
 }));
 
 ipcMain.handle("icon:get", async () => currentIcon());
@@ -320,23 +304,6 @@ ipcMain.handle("recovery:read", async () => {
 const dialogTitle = (title, fallback) => (typeof title === "string" && title.trim() ? title.slice(0, 200) : fallback);
 
 ipcMain.handle("excel:choose", async (_event, title) => {
-  // In the Mac App Store sandbox the user picks a folder rather than a file:
-  // a folder that exists yields a bookmark that keeps the right to write there
-  // after the app restarts, a file that does not exist yet yields none.
-  if (process.mas) {
-    const res = await dialog.showOpenDialog(mainWindow, {
-      title: dialogTitle(title, "Where should the automatic Excel copy be saved?"),
-      defaultPath: app.getPath("documents"),
-      properties: ["openDirectory", "createDirectory"],
-      securityScopedBookmarks: true
-    });
-    if (res.canceled || !res.filePaths.length) return { canceled: true };
-    return {
-      ok: true,
-      path: path.join(res.filePaths[0], "Lab Ledger Dental.xlsx"),
-      bookmark: (res.bookmarks && res.bookmarks[0]) || ""
-    };
-  }
   const res = await dialog.showSaveDialog(mainWindow, {
     title: dialogTitle(title, "Where should the automatic Excel copy be saved?"),
     defaultPath: path.join(app.getPath("documents"), "Lab Ledger Dental.xlsx"),
@@ -416,7 +383,6 @@ function pickAsset(assets) {
 
 ipcMain.handle("update:check", async () => {
   const current = app.getVersion();
-  if (STORE) return { ok: false, current, error: "store", url: RELEASES_PAGE };
   try {
     const rel = await getJson(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/releases/latest`);
     const latest = String(rel.tag_name || rel.name || "").replace(/^v/, "");
@@ -467,7 +433,6 @@ async function verifyDownload(filePath, assetName, assetUrl) {
 // folder under its published name, so it is an ordinary file the user can see,
 // keep or delete - not something hidden inside the program.
 ipcMain.handle("update:download", async (_event, asset) => {
-  if (STORE) return { ok: false, error: "store" };
   if (!asset || !asset.url || !/^https:\/\/github\.com\//.test(asset.url)) {
     return { ok: false, error: "bad asset" };
   }
@@ -530,7 +495,6 @@ ipcMain.handle("update:download", async (_event, asset) => {
 // files. A Linux AppImage needs the execute bit set by hand, so there we just
 // show the file where it landed.
 ipcMain.handle("update:install", async (_event, file) => {
-  if (STORE) return { ok: false, error: "store" };
   if (!file || !fs.existsSync(file)) return { ok: false, error: "file missing" };
   if (process.platform === "linux") {
     shell.showItemInFolder(file);

@@ -313,8 +313,6 @@ recovery code - and tells you where, instead of starting over on top of it.
 Lab Ledger Dental collects nothing. There is no account, no analytics, no tracking, no
 advertising and no crash reporting, and your data is never uploaded.
 
-- **Microsoft Store and Mac App Store versions** - make no network requests of their own; updates
-  come through the Store.
 - **Version from GitHub** - if the update check is on (it can be switched off
   in Settings), it asks GitHub at most once a day for the latest version number.
   The request carries only the app name and version. An update is downloaded
@@ -375,5 +373,5 @@ lab, not free to resell. It is covered by the
   version of it, to third parties for money: as a product, a hosted service,
   bundled with hardware, or built into another product. Write to
   <info@vladpereverzyev.com>.
-- **On 2030-09-14 this version becomes Apache 2.0** automatically. Every
+- **On 2030-10-01 this version becomes Apache 2.0** automatically. Every
   release carries its own change date, four years after it is published.

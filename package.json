@@ -11,15 +11,13 @@
     "start": "electron .",
     "test": "node --test test/*.test.js",
     "dist": "electron-builder --publish never",
-    "dist:portable": "electron-builder --win portable --publish never",
-    "dist:store": "electron-builder --win appx:x64 --publish never",
-    "dist:mas": "electron-builder --mac mas:universal --publish never"
+    "dist:portable": "electron-builder --win portable --publish never"
   },
   "dependencies": {
     "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
   },
   "devDependencies": {
-    "electron": "44.4.4",
+    "electron": "44.5.1",
     "electron-builder": "26.15.3"
   },
   "build": {
@@ -50,15 +48,6 @@
       ],
       "icon": "build/icon.ico"
     },
-    "appx": {
-      "identityName": "PARTNER_CENTER_PACKAGE_IDENTITY_NAME",
-      "publisher": "CN=PARTNER_CENTER_PUBLISHER_ID",
-      "publisherDisplayName": "PARTNER_CENTER_PUBLISHER_DISPLAY_NAME",
-      "applicationId": "LabLedger",
-      "displayName": "Lab Ledger Dental",
-      "backgroundColor": "transparent",
-      "languages": ["en-US", "it-IT", "de-DE", "fr-FR", "es-ES"]
-    },
     "nsis": {
       "guid": "6cd59d17-d5e2-558c-b9e9-ddb46d616c91",
       "oneClick": false,
@@ -76,16 +65,7 @@
       "category": "public.app-category.productivity",
       "hardenedRuntime": true,
       "entitlements": "build/entitlements.mac.plist",
-      "entitlementsInherit": "build/entitlements.mac.plist",
-      "extendInfo": { "ITSAppUsesNonExemptEncryption": false }
-    },
-    "mas": {
-      "type": "distribution",
-      "icon": "build/icon.icon",
-      "hardenedRuntime": false,
-      "entitlements": "build/entitlements.mas.plist",
-      "entitlementsInherit": "build/entitlements.mas.inherit.plist",
-      "provisioningProfile": "build/embedded.provisionprofile"
+      "entitlementsInherit": "build/entitlements.mac.plist"
     },
     "linux": {
       "target": ["AppImage", "deb"],

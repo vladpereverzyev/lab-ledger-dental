@@ -328,8 +328,6 @@ Lab Ledger Dental non raccoglie niente. Non c'è nessun account, nessuna statist
 nessun tracciamento, nessuna pubblicità e nessun rapporto sui crash, e i tuoi
 dati non vengono mai caricati da nessuna parte.
 
-- **Versioni Microsoft Store e Mac App Store**: non fanno nessuna richiesta di rete; gli
-  aggiornamenti arrivano dallo Store.
 - **Versione da GitHub**: se il controllo aggiornamenti è acceso (si spegne
   nelle Impostazioni), chiede a GitHub al massimo una volta al giorno qual è
   l'ultima versione. La richiesta contiene solo il nome dell'app e la versione.
@@ -390,5 +388,5 @@ laboratorio, non libero da rivendere. Vale la
   modificata, a terzi a pagamento: come prodotto, come servizio ospitato,
   abbinato a hardware o integrato in un altro programma. Scrivi a
   <info@vladpereverzyev.com>.
-- **Il 2030-09-14 questa versione diventa Apache 2.0** in automatico. Ogni
+- **Il 2030-10-01 questa versione diventa Apache 2.0** in automatico. Ogni
   release ha la propria data, quattro anni dopo la sua pubblicazione.

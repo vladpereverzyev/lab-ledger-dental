@@ -10,5 +10,5 @@
 - A forgotten administrator password is reset with the recovery code from the
   sign-in screen.
 
-The support page for app store users is at
+The same help as a web page is at
 <https://vladpereverzyev.github.io/lab-ledger-dental/support.html>.

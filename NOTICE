@@ -1,0 +1,27 @@
+Lab Ledger Dental
+Copyright (c) 2026 Vladyslav Pereverzyev
+
+Lab Ledger Dental is licensed under the Business Source License 1.1, see
+LICENSE. It is source-available, not open source. Any dental laboratory or
+dental practice may use it in production for its own work, free of charge.
+Offering it, or a modified version of it, to third parties for money needs a
+commercial licence from the author (info@vladpereverzyev.com).
+
+Each released version becomes available under the Apache License 2.0 on its
+Change Date, four years after it was first published. The date of the current
+version is written in LICENSE.
+
+GitHub shows the licence of this repository as "Other" because it does not
+detect the Business Source License on its own. The text in LICENSE is the one
+that applies.
+
+Third-party software shipped with the app
+
+  Electron       MIT License          https://github.com/electron/electron
+  SheetJS (xlsx) Apache License 2.0   https://sheetjs.com
+  Chart.js       MIT License          https://github.com/chartjs/Chart.js
+                 (bundled in src/vendor/chart.umd.min.js)
+
+Each of these keeps its own copyright and licence. Their licence texts are
+included in the installed app (Electron) or in the package itself (SheetJS,
+Chart.js).

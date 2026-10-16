@@ -33,7 +33,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # The App Store Connect API key notarizes the macOS build. It lives in
+      # The Apple API key notarizes the macOS build. It lives in
       # the repository secrets only and is written to the runner's temp folder.
       - name: Apple API key
         if: runner.os == 'macOS' && env.HAS_APPLE_KEY == 'true'
