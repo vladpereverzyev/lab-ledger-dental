@@ -17,7 +17,7 @@
     "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
   },
   "devDependencies": {
-    "electron": "44.7.0",
+    "electron": "45.2.3",
     "electron-builder": "26.18.0"
   },
   "build": {
